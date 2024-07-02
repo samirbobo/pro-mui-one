@@ -1,5 +1,9 @@
 import { Outlet } from "react-router-dom";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { Delete } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export default function RootLayout() {
   return (
@@ -25,8 +29,38 @@ export default function RootLayout() {
         component="h1"
         variant="subtitle1"
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit
+        Lorem ipsum dolor sit abet consectetur adipisicing elia
       </Typography>
+
+      {/*
+          Button: 
+            size: to select the size of button (small | medium default | large)
+            endIcon: to but icon component in end the button
+            startIcon: to but icon component in start the button
+            color: to select the color of button (primary default | secondary | success | error | info)
+            variant: to select the shape of button (text | contained default | outline)
+        */}
+
+      <Button
+        sx={{ m: "1rem auto", display: "flex" }}
+        size="medium"
+        variant="contained"
+        color="error"
+        endIcon={<Delete />}
+      >
+        Click Here
+      </Button>
+
+      {/*
+          IconButton: 
+            children: to add the icon component in side it
+            size: to select the size of button (small | medium default | large)
+            color: to select the color of button (primary default | secondary | success | error | info)
+            fontSize="inherit" : بتخلي بياخد حجمه بشكل تلقائي من الاب بتاعه
+        */}
+      <IconButton size="large" color="info">
+        <MenuIcon fontSize="inherit" />
+      </IconButton>
 
       <Outlet />
     </main>
