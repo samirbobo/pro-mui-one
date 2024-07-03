@@ -4,10 +4,13 @@ import Button from "@mui/material/Button";
 import { Delete } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import Navbar from "../components/Navbar";
 
 export default function RootLayout() {
   return (
     <main>
+      <Navbar />
+
       {/* 
         Typography: تستخدم في كتابه النصوص او بمعني اوضح كتابه عناصر اتش ام ال منسقه
           1- component => h1, h2, ..., h6 and others html elements
