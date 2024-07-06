@@ -1,12 +1,7 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import { Link } from "react-router-dom";
-import Typography from "@mui/material/Typography";
-import { Avatar } from "@mui/material";
+import { Avatar, AppBar, Toolbar, Typography } from "@mui/material";
 
-export default function Navbar() {
-  return (
-    /*
+/*
       AppBar: بتحتوي علي عنصر الهادر وبحط فيها عناصر الناف
       some props => color= (error | primary | ...) 
       position => (static | fixed | ...)
@@ -14,12 +9,23 @@ export default function Navbar() {
       Typography: متخصصه في تنسيق الناف وضعهم بتاخد كوتانير 
       some props => variant= (string | regular) 
         component and classes and sx
-    */
+*/
 
-    <AppBar position="static">
+export default function Navbar({ drawerWidth }) {
+  return (
+    <AppBar
+      sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+      position="static"
+    >
       <Toolbar>
         <Link to="/" style={{ textDecoration: "none", flexGrow: "1" }}>
-          <Typography variant="body1" color="white">
+          <Typography
+            sx={{
+              "&:Hover": { fontSize: "1.05rem", transition: "0.05s linear" },
+            }}
+            variant="body1"
+            color="white"
+          >
             My Expenses
           </Typography>
         </Link>
