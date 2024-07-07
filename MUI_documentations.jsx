@@ -1,5 +1,5 @@
 import { Delete } from "@mui/icons-material";
-import { Button, IconButton, Typography } from "@mui/material";
+import { Box, Button, Container, IconButton, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export default function MUI_documentations() {
@@ -55,6 +55,27 @@ export default function MUI_documentations() {
       <IconButton size="large" color="info">
         <MenuIcon fontSize="inherit" />
       </IconButton>
+
+      {/* 
+        Box: تستخدم في عمل عنصر اتش ام ال ليحتوي علي مجوعه من العناصر الاخره
+        component, classes, sx  وبياخد عناصر زي 
+      */}
+      <Box>
+        <Typography variant="h3" color="text.secondary">
+          Samirrrrrrrrrrr
+        </Typography>
+      </Box>
+
+      {/* 
+        Container: تستخدم في عمل عنصر اتش ام ال ليحتوي علي مجوعه من العناصر الاخره ولكن يختلف عن البوكس لانه واخد تنسيقات جهزه زي 
+        padding, margin 0 auto, width 100%
+        component, classes, sx  وبياخد عناصر زي 
+      */}
+      <Container>
+        <Typography variant="h3" color="text.secondary">
+          Samirrrrrrrrrrr
+        </Typography>
+      </Container>
     </>
   );
 }

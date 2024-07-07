@@ -13,6 +13,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useNavigate } from "react-router-dom";
 
 /*
   Drawer: بتعمل سايد بار جهزه وليها بروبساس كتير زي 
@@ -29,13 +30,19 @@ import LogoutIcon from "@mui/icons-material/Logout";
   ListItemButton => بتخلني اضيف جواها محتوي العنصر والفانكشن الي هتم فيه
   ListItemIcon => بحط جواها الايكون 
   ListItemText => بحط جواها محتوي النصي للعنصر 
+
+  علشان اشغل فكره اللينك في اربع طرق 
+  1- ListItemButton component="a" href="/"
+  2- Link from material ui href="/"
+  3- Link from react-router 
+  4- useNavigate from react-router 
 */
 export default function Sidebar({ drawerWidth }) {
+  const navigate = useNavigate();
   return (
     <Drawer
       sx={{
         width: `${drawerWidth}px`,
-
         flexShrink: 0,
         "& .MuiDrawer-paper": {
           width: `${drawerWidth}px`,
@@ -50,7 +57,11 @@ export default function Sidebar({ drawerWidth }) {
 
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
@@ -59,7 +70,11 @@ export default function Sidebar({ drawerWidth }) {
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              navigate("/create");
+            }}
+          >
             <ListItemIcon>
               <CreateIcon />
             </ListItemIcon>
@@ -68,7 +83,11 @@ export default function Sidebar({ drawerWidth }) {
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              navigate("/profile");
+            }}
+          >
             <ListItemIcon>
               <PersonIcon />
             </ListItemIcon>
@@ -77,7 +96,11 @@ export default function Sidebar({ drawerWidth }) {
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              navigate("/settings");
+            }}
+          >
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
@@ -86,7 +109,11 @@ export default function Sidebar({ drawerWidth }) {
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              navigate("/logout");
+            }}
+          >
             <ListItemIcon>
               <LogoutIcon />
             </ListItemIcon>
