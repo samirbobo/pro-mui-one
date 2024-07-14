@@ -58,11 +58,11 @@ export default function Sidebar({
   const currentLocation = useLocation();
 
   const links = [
-    { label: "Home", href: "/" },
-    { label: "Create", href: "/create" },
-    { label: "Profile", href: "/profile" },
-    { label: "Settings", href: "/settings" },
-    { label: "Logout", href: "/logout" },
+    { label: "Home", icon: <HomeIcon />, href: "/" },
+    { label: "Create", icon: <CreateIcon />, href: "/create" },
+    { label: "Profile", icon: <PersonIcon />, href: "/profile" },
+    { label: "Settings", icon: <SettingsIcon />, href: "/settings" },
+    { label: "Logout", icon: <LogoutIcon />, href: "/logout" },
   ];
 
   const changeAndSaveMode = () => {
@@ -102,7 +102,7 @@ export default function Sidebar({
         </ListItem>
         <Divider />
 
-        {links.map(({ label, href }) => (
+        {links.map(({ label, icon, href }) => (
           <ListItem
             sx={{
               bgcolor:
@@ -117,19 +117,7 @@ export default function Sidebar({
                 navigate(href);
               }}
             >
-              <ListItemIcon>
-                {label === "Home" ? (
-                  <HomeIcon />
-                ) : label === "Create" ? (
-                  <CreateIcon />
-                ) : label === "Profile" ? (
-                  <PersonIcon />
-                ) : label === "Settings" ? (
-                  <SettingsIcon />
-                ) : (
-                  <LogoutIcon />
-                )}
-              </ListItemIcon>
+              <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={label} />
             </ListItemButton>
           </ListItem>
