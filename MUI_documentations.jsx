@@ -2,6 +2,11 @@ import { Delete } from "@mui/icons-material";
 import { Box, Button, Container, IconButton, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
+// دا الكود المستخدم عشان ارن السيرفر الوهمي بتاع الجسون عشان اربط بين الفرونت والباك
+// npx json-server --watch data/db.json --port 3100
+// data/db.json دا اسم الملف الي انا مسميه في المشروع بتاعي لو سميت حاجه تانيه لازم الاسم هنا يتغير كمان 
+// --port 3100 هنا بيقبل اي رقم وانا حطيت القيمه دي عشان ابين الفكره بتاعته
+
 export default function MUI_documentations() {
   return (
     <>
@@ -59,6 +64,7 @@ export default function MUI_documentations() {
       {/* 
         Box: تستخدم في عمل عنصر اتش ام ال ليحتوي علي مجوعه من العناصر الاخره
         component, classes, sx  وبياخد عناصر زي 
+        autoComplete="off" بتخلي اي عنصر جواه لو كان انبت مش بيقترح بيانات وانت بتكتب
       */}
       <Box>
         <Typography variant="h3" color="text.secondary">
