@@ -7,5 +7,15 @@
 .title {
   background-color: blue;
   color: white;
-  padding: 0.5rem
+  padding: 0.5rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .link {
+    display: none;
+  }
 }
