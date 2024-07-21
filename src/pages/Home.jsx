@@ -38,7 +38,8 @@ export default function Home() {
             key={item.id}
             sx={{
               position: "relative",
-              width: "366px",
+              width: "90vw",
+              maxWidth: { xs: "320px", sm: "350px" },
               display: "flex",
               justifyContent: "space-between",
               padding: "1.75rem 2rem 0.5rem 1rem",
