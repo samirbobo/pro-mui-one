@@ -9,6 +9,7 @@ import {
   IconButton,
   useTheme,
 } from "@mui/material";
+import GroupIcon from "@mui/icons-material/Group";
 import HomeIcon from "@mui/icons-material/Home";
 import CreateIcon from "@mui/icons-material/Create";
 import PersonIcon from "@mui/icons-material/Person";
@@ -60,6 +61,7 @@ export default function Sidebar({
   const links = [
     { label: "Home", icon: <HomeIcon />, href: "/" },
     { label: "Create", icon: <CreateIcon />, href: "/create" },
+    { label: "Groups", icon: <GroupIcon />, href: "/groups" },
     { label: "Profile", icon: <PersonIcon />, href: "/profile" },
     { label: "Settings", icon: <SettingsIcon />, href: "/settings" },
     { label: "Logout", icon: <LogoutIcon />, href: "/logout" },

@@ -1,11 +1,29 @@
 import { Delete } from "@mui/icons-material";
-import { Box, Button, Container, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  IconButton,
+  Paper,
+  Stack,
+  styled,
+  Typography,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 // دا الكود المستخدم عشان ارن السيرفر الوهمي بتاع الجسون عشان اربط بين الفرونت والباك
 // npx json-server --watch data/db.json --port 3100
-// data/db.json دا اسم الملف الي انا مسميه في المشروع بتاعي لو سميت حاجه تانيه لازم الاسم هنا يتغير كمان 
+// data/db.json دا اسم الملف الي انا مسميه في المشروع بتاعي لو سميت حاجه تانيه لازم الاسم هنا يتغير كمان
 // --port 3100 هنا بيقبل اي رقم وانا حطيت القيمه دي عشان ابين الفكره بتاعته
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
 
 export default function MUI_documentations() {
   return (
@@ -82,6 +100,23 @@ export default function MUI_documentations() {
           Samirrrrrrrrrrr
         </Typography>
       </Container>
+
+      {/*
+        Stack: بتقوم بتنسيق العناصر علي شكل افقي او راسي زي فكره الجرد و الفليكس ولاكن هنا ابسط واسرع
+        ليها بعض البروبساس زي 
+        spacing | direction | divider | useFlexGap | component | sx | flexWrap
+      */}
+
+      <Stack
+        spacing={2}
+        divider={<Divider orientation="vertical" flexItem />}
+        direction="row"
+        flexWrap="wrap"
+      >
+        <Item>Item 1</Item>
+        <Item>Item 2</Item>
+        <Item>Item 3</Item>
+      </Stack>
     </>
   );
 }
