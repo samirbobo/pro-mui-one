@@ -154,7 +154,7 @@ export default function Navbar({ drawerWidth, setShowSidebar }) {
       onClose={handleMobileMenuClose}
     >
       <MenuItem sx={{ gap: "0.5rem" }}>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton size="small" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
@@ -164,7 +164,7 @@ export default function Navbar({ drawerWidth, setShowSidebar }) {
 
       <MenuItem sx={{ gap: "0.5rem" }}>
         <IconButton
-          size="large"
+          size="small"
           aria-label="show 17 new notifications"
           color="inherit"
         >
