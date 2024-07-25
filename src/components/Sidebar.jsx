@@ -14,9 +14,10 @@ import HomeIcon from "@mui/icons-material/Home";
 import CreateIcon from "@mui/icons-material/Create";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
+import CollectionsRoundedIcon from "@mui/icons-material/CollectionsRounded";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { useLocation, useNavigate } from "react-router-dom";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
+import { useLocation, useNavigate } from "react-router-dom";
 
 /*
   Drawer: بتعمل سايد بار جهزه وليها بروبساس كتير زي 
@@ -62,6 +63,7 @@ export default function Sidebar({
     { label: "Home", icon: <HomeIcon />, href: "/" },
     { label: "Create", icon: <CreateIcon />, href: "/create" },
     { label: "Groups", icon: <GroupIcon />, href: "/groups" },
+    { label: "Gallery", icon: <CollectionsRoundedIcon />, href: "/gallery" },
     { label: "Profile", icon: <PersonIcon />, href: "/profile" },
     { label: "Settings", icon: <SettingsIcon />, href: "/settings" },
     { label: "Logout", icon: <LogoutIcon />, href: "/logout" },
