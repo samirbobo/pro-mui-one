@@ -18,6 +18,7 @@ import CollectionsRoundedIcon from "@mui/icons-material/CollectionsRounded";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
+import AddPost from "./AddPost";
 
 /*
   Drawer: بتعمل سايد بار جهزه وليها بروبساس كتير زي 
@@ -66,7 +67,6 @@ export default function Sidebar({
     { label: "Gallery", icon: <CollectionsRoundedIcon />, href: "/gallery" },
     { label: "Profile", icon: <PersonIcon />, href: "/profile" },
     { label: "Settings", icon: <SettingsIcon />, href: "/settings" },
-    { label: "Logout", icon: <LogoutIcon />, href: "/logout" },
   ];
 
   const changeAndSaveMode = () => {
@@ -126,7 +126,22 @@ export default function Sidebar({
             </ListItemButton>
           </ListItem>
         ))}
+
+        <ListItem disablePadding>
+          <ListItemButton
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItemButton>
+        </ListItem>
       </List>
+
+      <AddPost />
     </Drawer>
   );
 }
