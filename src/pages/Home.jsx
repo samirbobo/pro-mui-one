@@ -10,10 +10,23 @@ import { useEffect, useState } from "react";
 */
 export default function Home() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const fakeData = [
+    { price: 20, id: "samir", title: "Water" },
+    { price: 30, id: "samir2", title: "Food" },
+  ];
+
   const fetchData = () => {
     fetch("http://localhost:3100/myData")
       .then((response) => response.json())
-      .then((data) => setData(data));
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setData(fakeData);
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -25,13 +38,13 @@ export default function Home() {
       method: "DELETE",
     }).then(() => fetchData());
   };
-
   let totalPrice = 0;
 
   return (
     <Box>
+      {loading && <span className="loader"></span>}
       {data.map((item) => {
-        totalPrice += item.price;
+        totalPrice += Number(item.price);
 
         return (
           <Paper

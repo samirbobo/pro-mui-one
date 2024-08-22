@@ -3,6 +3,7 @@ import { purple } from "@mui/material/colors";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 // styled : فانكش بتجهز نوع المكون الي هعمل عليه تنسيقات ال سي اس اس
 // getContrastText فانكشن بتاخد قيمه اللون بتاع الباك جروند عشان تلاقي لون مناسب للكلام الي جواه
@@ -18,9 +19,13 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 export default function Create() {
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(0);
   const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const sendData = (body) => {
     // دا للينك السيرفر الي انا علمته باستخدم ملف الجاسون
@@ -33,10 +38,17 @@ export default function Create() {
     }).then(() => navigate("/"));
   };
 
+  const onSubmit = (data) => sendData(data);
+
   return (
-    <Box autoComplete="off" component="form" sx={{ width: "320px" }}>
+    <Box
+      component="form"
+      noValidate
+      onSubmit={handleSubmit(onSubmit)}
+      autoComplete="off"
+      sx={{ width: "320px" }}
+    >
       <TextField
-        onChange={(e) => setTitle(e.target.value)}
         fullWidth
         label="Transaction Title"
         sx={{ mt: "22px", display: "block" }}
@@ -44,20 +56,36 @@ export default function Create() {
           startAdornment: <InputAdornment position="start">👉</InputAdornment>,
         }}
         variant="filled"
+        {...register("title", {
+          required: true,
+          minLength: 3,
+          maxLength: 20,
+        })}
+        error={Boolean(errors.title)}
+        helperText={
+          // eslint-disable-next-line no-extra-boolean-cast
+          Boolean(errors.transaction)
+            ? "This field is required & min 3 character"
+            : null
+        }
       />
       <TextField
-        onChange={(e) => setPrice(Number(e.target.value))}
         fullWidth
         label="Price"
         sx={{ mt: "22px", display: "block" }}
         InputProps={{
           startAdornment: <InputAdornment position="start">$</InputAdornment>,
         }}
+        {...register("price", { required: true, min: 1 })}
+        error={Boolean(errors.price)}
+        // eslint-disable-next-line no-extra-boolean-cast
+        helperText={Boolean(errors.price) ? "The minimum price is 1$" : null}
         variant="filled"
       />
       <ColorButton
-        onClick={() => sendData({ title, price })}
+        // onClick={() => sendData({ title, price })}
         sx={{ mt: "22px" }}
+        type="submit"
         endIcon={<ChevronRightIcon />}
       >
         Submit
